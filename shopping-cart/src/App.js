@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import Product from "./components/Product.jsx"
 
-function App() {
+
+const App = () => {
+  const [allProducts, setAllProducts] = useState([
+    { name: "Tomato", price: "$20", img: "/productos/tomate.jpg" },
+    { name: "Lettuce", price: "$35", img: "/productos/lechuga.jpg"},
+    { name: "Bee", price: "$15", img: "./productos/arbejas.jpg"}
+  ]) 
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Product 
+      addToCart={() => console.log("added")}
+      allProducts={allProducts}
+      />
     </div>
-  );
+  )
 }
-
 export default App;
